@@ -26,6 +26,18 @@ const handleErrors=(err)=>{
 
 }
 
+const getregisteredpage=(req,res)=>{
+    res.render('signup')
+}
+
+const getloginpage=(req,res)=>{
+    res.render('login')
+}
+
+const getdashboard=(req,res)=>{
+    res.render('dashboard')
+}
+
 const register=async(req, res)=>{
 const {email, password}=req.body
 try {
@@ -64,5 +76,8 @@ const Login=async(req, res)=>{
 
 module.exports={
     register,
-    Login
+    Login,
+    getregisteredpage,
+    getloginpage,
+    getdashboard
 }

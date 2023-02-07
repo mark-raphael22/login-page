@@ -10,6 +10,7 @@ const notfound = require("./middlware/notfoundroute")
 //middleware
 app.use (express.json());
 
+app.set('view engine', "ejs");
 
 //routes and error in routes
 app.use(newRouter)
