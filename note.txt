@@ -1,1 +1,22 @@
 HASHING ALGORITHM
+
+
+
+
+//salting - generating a random string
+
+
+refactoring
+error handling
+mongose hooks(middlware)
+
+authentication (session (cookies)based and token and based)
+protecting route using authentication
+intergrating ejs views
+
+
+how to convert object to an array
+object.keys
+object.values
+object.entries
+
