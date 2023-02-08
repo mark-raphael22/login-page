@@ -12,9 +12,11 @@ const handleErrors=(err)=>{
     }
     if (err.message==="users not registerd yet"){
     return errors
-    if(err.message==='invalid email or password')
-    errors.password = "Invalid Email or password"
-    return errors
+    }
+    if(err.message==='invalid email or password'){
+        errors.password = "Invalid Email or password"
+        return errors
+
     }
 
     if(err.message.includes('user validation failed')){
@@ -44,10 +46,10 @@ try {
     //protect user info
     //create the user on the database
     const user = await Users.create({email,password})
-        res.status(201).json({sucess:true,data:user})
+        res.status(201).json({success:true,data:user})
 } catch (error) {
     const errors=handleErrors(error);
-    res.status(400).json({errors})
+    res.status(400).json({success:false,errors})
     //handle errors in the catch block 
 }
 }
@@ -62,7 +64,7 @@ const Login=async(req, res)=>{
     if(user){
         const authenticated = await bcrypt.compare(password,user.password);
         if(authenticated){
-            return res.status(200).json({sucess: true,data:user})
+            return res.status(200).json({success: true,data:user})
         }
         throw Error('invalid email or password')
     }
@@ -70,7 +72,7 @@ const Login=async(req, res)=>{
 
    } catch (error) {
     const errors=handleErrors(error);
-    res.status(400).json({errors})
+    res.status(400).json({success:false, errors})
    }
 }
 

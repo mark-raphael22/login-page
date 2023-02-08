@@ -17,11 +17,11 @@ const userShema= new Schema({
     password:{
         type:String,
         required:[true,"please provide a password"],
-        minlength:[11,"this  minimum password lenght  is 11"],
+        minlength:[7,"this  minimum password lenght  is 7"],
     },
 },{timestamps:true})
 //function that protect our users info  before we save them
-//we aare using a function expression an a this global style
+//we are using a function expression an a (this) global style
 userShema.pre('save', async function (next){
     const salt = await bcrypt.genSalt()
     this.password= await bcrypt.hash(this.password,salt);
